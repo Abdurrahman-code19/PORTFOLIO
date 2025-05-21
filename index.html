@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdurrahman Oriolowo Abefe - Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 50px;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo img {
+      border-radius: 50%;
+      border: 2px solid #00bcd4;
+      transition: transform 0.3s ease;
+    }
+
+    .logo img:hover {
+      transform: rotate(10deg) scale(1.1);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #00bcd4;
+      transition: 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #00bcd4;
+    }
+
+    .nav-links li a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links li a {
+        font-size: 1.2rem;
+      }
+    }
+
+    section {
+      padding: 60px 40px;
+      background: #1e1e1e;
+      border-bottom: 1px solid #333;
+    }
+
+    h2 {
+      color: #00bcd4;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #00bcd4;
+      margin-top: 10px;
+      border-radius: 2px;
+    }
+
+    .about-container {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .profile-img {
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    figcaption {
+      color: #ccc;
+      margin-top: 10px;
+      font-style: italic;
+      text-align: center;
+    }
+
+    article p {
+      max-width: 800px;
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #2a2a2a;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    thead {
+      background: #00bcd4;
+      color: #fff;
+    }
+
+    td, th {
+      padding: 12px 20px;
+      text-align: left;
+      border-bottom: 1px solid #444;
+    }
+
+    tbody tr:hover {
+      background: #333;
+    }
+
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .projects-container article {
+      background: #2e2e2e;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,188,212,0.1);
+      transition: transform 0.3s;
+    }
+
+    .projects-container article:hover {
+      transform: translateY(-5px);
+    }
+
+    .projects-container img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .projects-container a {
+      color: #00bcd4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    iframe, audio {
+      margin-top: 10px;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
+    }
+
+    form {
+      background: #2a2a2a;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    fieldset {
+      border: none;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: none;
+      background: #1c1c1c;
+      color: #f0f0f0;
+    }
+
+    input[type="submit"] {
+      background: #00bcd4;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background: #0097a7;
+    }
+
+    footer {
+      text-align: center;
+      background: #0f2027;
+      padding: 30px 20px;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    footer ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    footer a {
+      color: #00bcd4;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Logo" style="width: 50px; height: 50px;">
+      <div>
+        <h1>Abdurrahman Oriolowo Abefe</h1>
+        <p>Full-Stack Developer</p>
+      </div>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <figure>
+        <img src="my image.jpg" alt="Abdurrahman Oriolowo Abefe smiling" style="width: 150px; height: 175px;" class="profile-img">
+        <figcaption>Abdurrahman Oriolowo Abefe – Full-Stack Developer</figcaption>
+      </figure>
+
+      <article>
+        <p>
+          I'm Abdurrahman Oriolowo Abefe, a dedicated Full-Stack Developer with a passion for building efficient, scalable, and user-friendly web applications...
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <p>Here are some of the technical skills I have acquired and continue to develop:</p>
+    <table border="1" cellpadding="8" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Proficiency</th>
+          <th>Years of Experience</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>HTML & CSS</td><td>Intermediate</td><td>Less than 1</td></tr>
+        <tr><td>JavaScript</td><td>Beginner</td><td>Not yet started</td></tr>
+        <tr><td>React</td><td>Beginner</td><td>Not yet started</td></tr>
+        <tr><td>Node.js</td><td>Beginner</td><td>Not yet started</td></tr>
+        <tr><td>Git & GitHub</td><td>Beginner</td><td>Less than 1</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <p>Here are some of the projects I've worked on:</p>
+    <div class="projects-container">
+      <article>
+        <figure>
+          <img src="project1.jpg" alt="Screenshot of Portfolio Website">
+          <figcaption>Personal Portfolio</figcaption>
+        </figure>
+        <p>A responsive personal portfolio website to showcase my skills.</p>
+        <a href="https://github.com/Abdurrahman-code19/First-Ever-Project.git" target="_blank">Live Demo</a>
+      </article>
+      <article>
+        <figure>
+          <img src="project2.jpg" alt="Screenshot of DogPhotosApp">
+          <figcaption>DogPhotosApp</figcaption>
+        </figure>
+        <p>A simple and clean DogPhotosApp built with HTML.</p>
+        <a href="https://github.com/Abdurrahman-code19/trial-1.git" target="_blank">View Project</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="multimedia">
+    <h2>Learn Web Development</h2>
+    <p>Below are beginner-friendly resources that helped me learn:</p>
+    <div>
+      <h3>Web Development for Beginners – FreeCodeCamp</h3>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/gQojMIhELvM" title="Web Development for Beginners - Full Course" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div>
+      <h3>Introduction to HTML Audio Guide</h3>
+      <audio controls>
+        <source src="intro-to-html.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>If you have any questions or would like to work together, reach out below:</p>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Personal Information</legend>
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject">
+      </fieldset>
+
+      <fieldset>
+        <legend>Message</legend>
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="5" cols="30" required></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Additional Info</legend>
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male"><label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female"><label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="other"><label for="other">Other</label>
+
+        <label for="contactTime">Preferred Contact Time:</label>
+        <select id="contactTime" name="contactTime">
+          <option value="morning">Morning</option>
+          <option value="afternoon">Afternoon</option>
+          <option value="evening">Evening</option>
+        </select>
+
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the terms and conditions</label>
+      </fieldset>
+
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Abdurrahman Oriolowo Abefe. All rights reserved.</p>
+    <p>Connect with me:</p>
+    <ul>
+      <li>💼 <a href="https://www.linkedin.com/in/abdurrahman-oriolowo-aba188352/" target="_blank">LinkedIn</a></li>
+      <li>🐙 <a href="https://github.com/Abdurrahman-code19" target="_blank">GitHub</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
