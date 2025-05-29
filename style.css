@@ -6,6 +6,9 @@
       color: #f0f0f0;
       line-height: 1.6;
     }
+html {
+    scroll-behavior: smooth;
+}
 
     header {
       display: flex;
